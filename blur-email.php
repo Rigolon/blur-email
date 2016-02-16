@@ -1,9 +1,12 @@
+<?php
+
 function blur_email( $str ) {
 
   $str = mb_convert_encoding($str , 'UTF-32', 'UTF-8'); //big endian
   $split = str_split($str, 4);
 
   $res = "";
+  
   foreach ($split as $c)
   {
     $cur = 0;
@@ -15,8 +18,8 @@ function blur_email( $str ) {
     
     $res .= "&#" . $cur . ";";
     
-    }
-    
+  }
+  
     return $res;
   
 }
